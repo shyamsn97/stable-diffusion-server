@@ -29,6 +29,17 @@ setup(
     packages=find_packages(exclude=('tests',)),
 
     install_requires=[
+        'fastapi',
+        'pyngrok',
+        'nest-asyncio',
+        'uvicorn',
+        'starlette',
+        'pillow',
+        'numpy',
+        'diffusers',
+        'transformers',
+        'torch',
+        'accelerate'
     ],
 
     classifiers=[
