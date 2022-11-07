@@ -46,9 +46,6 @@ def clear_cuda_mem():
     torch.cuda.empty_cache()
 
 
-# def process_images(images: List[]):
-
-
 def create_app(stable_diffusion_pipeline: StableDiffusionPipeline) -> FastAPI:
     app = FastAPI()
     prompt_image_dict = {}
@@ -132,16 +129,19 @@ class DiffusersServer:
         pipeline = pipeline_cls.from_pretrained(pretrained_path, **pipeline_kwargs)
         return DiffusersServer(pipeline, enable_attention_slicing, device)
 
-    def start(self, ngrok_auth_token: Optional[str] = None, port: int = 8000) -> None:
+    def start(self, ngrok_auth_token: Optional[str] = None, port: int = 8000, host: str = '127.0.0.1') -> None:
         if self.app is None:
             self.app = self.create_app()
 
+        url = f"http://{host}:{port}"
         if ngrok_auth_token is not None:
             ngrok.set_auth_token(ngrok_auth_token)
             ngrok_tunnel = ngrok.connect(port, bind_tls=True)
             print("Public URL:", ngrok_tunnel.public_url)
+            url = ngrok_tunnel.public_url
         nest_asyncio.apply()
-        uvicorn.run(self.app, port=port)
+        uvicorn.run(self.app, port=port, host=host)
+        return url
 
     def shutdown(self) -> None:
         self.app = None
