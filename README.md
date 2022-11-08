@@ -22,7 +22,7 @@ python setup.py install
 
 ### Stable Diffusion Server + Client Interface -- Simple Usage
 
-Here we create a simple server hosting the standard `StableDiffusionPipeline`. The client takes in `**kwargs` that should be the arguments passed into the `__call__` function from the pipeline. For instance, the `StableDiffusionPipeline` `__call__` method can be found: https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion.py#L185. `host` and `port` can be specified in the `start` method for generic hosting.
+Here we create a simple server hosting the standard `StableDiffusionPipeline` from the amazing package [`diffusers`](https://github.com/huggingface/diffusers). The client takes in `**kwargs` that should be the arguments passed into the `__call__` function from the pipeline. For instance, the `StableDiffusionPipeline` `__call__` method can be found: https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion.py#L185. `host` and `port` can be specified in the `start` method for generic hosting.
 
 
 ```python
