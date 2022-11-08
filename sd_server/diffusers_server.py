@@ -8,15 +8,9 @@ import nest_asyncio
 import torch
 import uvicorn
 from diffusers import StableDiffusionPipeline
-
-# from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 from pyngrok import ngrok
-
-# from PIL import Image
-# import numpy as np
-# from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
 
@@ -129,7 +123,12 @@ class DiffusersServer:
         pipeline = pipeline_cls.from_pretrained(pretrained_path, **pipeline_kwargs)
         return DiffusersServer(pipeline, enable_attention_slicing, device)
 
-    def start(self, ngrok_auth_token: Optional[str] = None, port: int = 8000, host: str = '127.0.0.1') -> None:
+    def start(
+        self,
+        ngrok_auth_token: Optional[str] = None,
+        port: int = 8000,
+        host: str = "127.0.0.1",
+    ) -> None:
         if self.app is None:
             self.app = self.create_app()
 
