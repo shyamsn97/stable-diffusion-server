@@ -1,5 +1,7 @@
 # Stable Diffusion Google Colab FastAPI Server
 
+[![PyPI version](https://badge.fury.io/py/sd-server.svg)](https://badge.fury.io/py/sd-server)
+
 ## Note: This is a pretty hacky server / client interface for generic Stable Diffusion pipelines using diffusers. It's not made for production use and hasn't really been optimized completely.
 
 #### Installation
@@ -52,7 +54,9 @@ responses = client(prompt='a photo of an astronaut riding a horse on mars', num_
 
 ### Serving from Google Colab
 
-Using the server in Google Colab requires an [ngrok](https://ngrok.com/) account, and needs your ngrok auth token https://dashboard.ngrok.com/get-started/your-authtoken to be passed to the server. Note: Ngrok basically opens a tunnel from a dev machine to the cloud, which means its not really that secure, and should be used at your own risk. Read more here: https://stackoverflow.com/questions/36552950/is-ngrok-safe-to-use-or-can-it-be-compromised
+Full google colab example: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13B7EzuDTAsjd0hpUki_ZiqoQ4wgOyZUM?usp=sharing)
+
+Using the server in Google Colab requires an [ngrok](https://ngrok.com/) account, and needs your ngrok auth token https://dashboard.ngrok.com/get-started/your-authtoken to be passed to the server. Note: Ngrok basically opens a tunnel from a dev machine to the cloud, which means its not really that secure, and should be used at your own risk. Read more here: https://stackoverflow.com/questions/36552950/is-ngrok-safe-to-use-or-can-it-be-compromised.
 
 
 ```python
