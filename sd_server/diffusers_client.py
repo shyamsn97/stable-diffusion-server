@@ -45,7 +45,7 @@ class DiffusersClient:
 
         while has_images:
             response = requests.get(
-                f"{self.endpoint}/get_image", params=params, headers=headers
+                f"{self.endpoint}/get_images", params=params, headers=headers
             )
             if response.content == b"null":
                 has_images = False
